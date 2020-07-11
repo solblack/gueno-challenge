@@ -1,6 +1,6 @@
 # APP for Gueno Challenge
 
-This proyect contains 2 folders: one containing the API project and another one containing the Interface project.
+This project contains 2 folders: one containing the API project and another one containing the Interface project.
 Here are the instructions to install and run both projects to get this APP up and running!
 
 After you clone the repository on your computer, you will have the repository folder locally, containing two folders: "api-node" folder and the "front-end-app" folder. You will need to enter the "api-node" folder and then follow the instructions inside the README file included in that folder (I will leave the instrucctions on this README file as well). After you do that, you will have the API project up and running.
