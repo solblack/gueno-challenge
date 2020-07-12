@@ -1,0 +1,160 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GUENO CHALLENGE API",
+    "version": "1.0.0",
+    "description": "Documentation for the Gueno challenge API",
+    "contact": {
+      "name": "Sol Latorre Beorlegui",
+      "url": "https://www.linkedin.com/in/solb",
+      "email": "solbeor@gmail.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/api/clients/{dni}": {
+      "get": {
+        "tags": ["Clients"],
+        "description": "Returns client data by DNI",
+        "operationId": "getClient",
+        "parameters": [
+          {
+            "name": "dni",
+            "in": "path",
+            "required": true,
+            "description": "Client DNI",
+            "schema": {
+              "type": "integer",
+              "minimum": 7,
+              "maximun": 9,
+              "example": 11111111
+            }
+          }
+        ],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "properties": {
+                "result": { "example": "ok", "type": "string" },
+                "status": { "example": 200, "type": "number" },
+                "data": {
+                  "$ref": "#/definitions/ClientRequest",
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "schema": { "$ref": "#/definitions/ResponseError" }
+          },
+          "401": {
+            "description": "Not authorized",
+            "schema": { "$ref": "#/definitions/ResponseError" }
+          },
+          "403": {
+            "description": "Invalid Token",
+            "schema": { "$ref": "#/definitions/ResponseError" }
+          },
+          "500": {
+            "description": "There's been a problem processing your request",
+            "schema": { "$ref": "#/definitions/ResponseError" }
+          }
+        }
+      }
+    },
+    "/api/swagger.json": {
+      "get": {
+        "tags": ["swagger.json"],
+        "description": "Returns swagger.json file",
+        "operationId": "getSwaggerJson",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "example": "swagger.json file with API documentation",
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "There's been a problem processing your request",
+            "schema": { "$ref": "#/definitions/ResponseError" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ResponseError": {
+      "description": "Error description",
+      "properties": {
+        "result": { "example": "error", "type": "string" },
+        "status": { "example": "Status Code: 4xx, 5xx", "type": "integer" },
+        "developerMessage": {
+          "example": "Parse error: syntax error, unexpected...",
+          "type": "string"
+        },
+        "validationErrors": {
+          "items": { "$ref": "#/definitions/ValidationError" },
+          "type": "array"
+        },
+        "userMessage": {
+          "example": "A problem occured when trying to...",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "ValidationError": {
+      "title": "ValidationError",
+      "description": "Validation error",
+      "properties": {
+        "property_path": { "example": "name", "type": "string" },
+        "message": { "example": "Name property is mandatory", "type": "string" }
+      },
+      "type": "object"
+    },
+    "ResponseMetadata": {
+      "title": "Metadata",
+      "description": "Metadata",
+      "properties": {
+        "resultset": {
+          "properties": {
+            "offset": { "example": 0, "type": "integer" },
+            "limit": { "example": 10, "type": "integer" },
+            "count": { "example": 5431, "type": "integer" }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "ClientRequest": {
+      "title": "ClientRequest",
+      "properties": {
+        "name": { "type": "string", "example": "Gomez" },
+        "birthday": { "type": "string", "example": "1990-04-04T14:48:00.000Z" },
+        "scoring": {
+          "type": "object",
+          "properties": {
+            "confidence": { "example": "0.78", "type": "number" },
+            "approved": { "example": "true", "type": "boolean" }
+          }
+        }
+      },
+      "type": "object"
+    }
+  },
+  "securityDefinitions": {
+    "access_token": {
+      "name": "Authorization",
+      "type": "apiKey",
+      "in": "header",
+      "description": "Access Token with format: Bearer {jwt}"
+    }
+  }
+}

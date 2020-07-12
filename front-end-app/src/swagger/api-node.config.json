@@ -1,0 +1,8 @@
+{
+  "$schema": "../../node_modules/ng-swagger-gen/ng-swagger-gen-schema.json",
+  "swagger": "./src/swagger/swagger_api_node.json",
+  "output": "./src/app/core/api-node",
+  "includeTags": ["Clients"],
+  "prefix": "Api",
+  "ignoreUnusedModels": false
+}
