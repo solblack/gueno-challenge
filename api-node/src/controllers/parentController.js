@@ -39,6 +39,11 @@ const parentController = {
 		newError.info = { code: errorCode, status: errorStatus };
 		return newError;
 	},
+	getValidationError: (validationErrors) => {
+		const error = new Error("Validation errors found");
+		error.info = { status: "400", validationErrors: validationErrors };
+		return error;
+	},
 };
 
 export default parentController;

@@ -15,9 +15,15 @@ export const ClientRequest = {
 		},
 		scoring: {
 			type: "object",
-			example: {
-				confidence: 0.53,
-				approved: false,
+			properties: {
+				confidence: {
+					example: "0.78",
+					type: "number",
+				},
+				approved: {
+					example: "true",
+					type: "boolean",
+				},
 			},
 		},
 	},
