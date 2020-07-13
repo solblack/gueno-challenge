@@ -7,6 +7,8 @@ After you clone the repository on your computer, you will have the repository fo
 
 To install and run the Interface/front-end app project, you need to enter the folder "front-end-app" and then follow the instructions inside the README file included in that folder (I will also leave the instrucctions on this README file as well).
 
+IMPORTANT: The Angular CLI requires a minimum Node.js version of either v10.13 or v12.0.
+
 # api-node
 
 API for Gueno Challenge made using Express framework
@@ -21,9 +23,13 @@ API for Gueno Challenge made using Express framework
 
 # front-end-app
 
+IMPORTANT: this Angular project requires a minimum Node.js version of either v10.13 or v12.0 to run.
+
 Front-end app made using Angular Framework for Gueno Challenge
 
 -   Run "npm install" or "npm i" to install dependencies
+
+-   Create a file called environment.ts inside the environment folder (located in the path /front-end-app/src) and paste the content you will find inside the file environment.dev.ts in the same folder.
 
 -   Run "npm start"
 
