@@ -65,4 +65,22 @@ export class ScoreCheckComponent implements OnInit, OnDestroy {
     this.searchBtnClicked = false;
     this.clientFacade.searchDni(this.searchClient.value.dni);
   }
+
+  public formatCuit(cuit: number): string {
+    let cuitString = cuit.toString();
+    return (
+      cuitString.slice(0, 2) +
+      "-" +
+      cuitString.slice(2, -1) +
+      "-" +
+      cuitString.slice(cuitString.length - 1)
+    );
+  }
+
+  public formatDate(birthdate: string): string {
+    let date = new Date(birthdate);
+    let options = { year: "numeric", month: "long", day: "numeric" };
+    let dateSpanish = date.toLocaleDateString("es-ES", options);
+    return dateSpanish;
+  }
 }

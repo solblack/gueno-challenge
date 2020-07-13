@@ -26,6 +26,10 @@ export const ClientRequest = {
 				},
 			},
 		},
+		cuit: {
+			type: "number",
+			example: "27111111119",
+		},
 	},
 	type: "object",
 };

@@ -38,11 +38,19 @@
   </div>
   <div class="data" *ngIf="clientData && !searchingClient">
     <div class="client-info">
-      <p>Nombre y apellido: {{ clientData.name }} {{ clientData.surname }}</p>
-      <p>Fecha de nacimiento: {{ clientData.birthday | date: "dd/MM/yyyy" }}</p>
-      <p>Scoring: {{ clientData.scoring.confidence }}</p>
       <p>
-        Resultado: {{ clientData.scoring.approved ? "APROBADO" : "DENEGADO" }}
+        <strong>Nombre y apellido:</strong> {{ clientData.name }}
+        {{ clientData.surname }}
+      </p>
+      <p>
+        <strong>Fecha de nacimiento:</strong>
+        {{ formatDate(clientData.birthday) }}
+      </p>
+      <p><strong>Cuit:</strong> {{ formatCuit(clientData.cuit) }}</p>
+      <p><strong>Scoring:</strong> {{ clientData.scoring.confidence }}</p>
+      <p>
+        <strong>Estado:</strong>
+        {{ clientData.scoring.approved ? "APROBADO" : "DENEGADO" }}
         <i
           class="result-mobile"
           [ngClass]="{

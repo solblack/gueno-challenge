@@ -75,9 +75,9 @@
 }
 
 .data {
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-weight: 200;
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -89,7 +89,7 @@
 
 .result {
   font-size: 10rem;
-  padding: 4rem 0 4rem 2rem;
+  padding: 4rem 0 4rem 3rem;
 }
 
 .error-msg {
@@ -117,7 +117,7 @@
     width: 80%;
   }
   .data {
-    width: 80%;
+    width: 90%;
   }
   .result {
     display: none;

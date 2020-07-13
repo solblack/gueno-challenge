@@ -4,4 +4,5 @@ export interface ClientRequest {
   name?: string;
   surname?: string;
   scoring?: { confidence?: number; approved?: boolean };
+  cuit?: number;
 }

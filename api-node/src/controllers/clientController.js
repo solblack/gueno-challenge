@@ -44,7 +44,8 @@ const clientController = {
 			const response = await axios.get(
 				GUENO_BASE_URL + "getUserData/" + cuit
 			);
-			const clientData = response.data.data;
+			let clientData = response.data.data;
+			clientData.cuit = Number(cuit);
 			return clientData;
 		} catch (error) {
 			const error = parentController.getAxiosError(

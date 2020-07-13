@@ -145,7 +145,8 @@
             "confidence": { "example": "0.78", "type": "number" },
             "approved": { "example": "true", "type": "boolean" }
           }
-        }
+        },
+        "cuit": { "type": "number", "example": "27111111119" }
       },
       "type": "object"
     }
