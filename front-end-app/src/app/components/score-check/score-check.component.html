@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="title">
+    <h2>Credit score check</h2>
+  </div>
+  <div class="search">
+    <form [formGroup]="searchClient">
+      <div class="search-input">
+        <input type="text" formControlName="dni" placeholder="Ingrese DNI" />
+        <button
+          class="btn"
+          [ngClass]="{ 'btn-hover': searchClient.valid }"
+          type="button"
+          (click)="search()"
+          [disabled]="searchingClient"
+        >
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="validation" *ngIf="searchClient.get('dni').touched">
+        <div *ngIf="searchClient.get('dni').hasError('required')">
+          <p>Debe ingresar un DNI para poder realizar la búsqueda</p>
+        </div>
+        <div *ngIf="searchClient.get('dni').hasError('pattern')">
+          <p>El DNI debe contener sólamente números sin puntos</p>
+        </div>
+        <div
+          *ngIf="
+            searchClient.get('dni').hasError('minlength') && searchBtnClicked
+          "
+        >
+          <p>El DNI debe contener al menos 7 caractéres</p>
+        </div>
+        <div *ngIf="searchClient.get('dni').hasError('maxlength')">
+          <p>El DNI debe no puede contener más de 8 caractéres</p>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="data" *ngIf="clientData && !searchingClient">
+    <div class="client-info">
+      <p>Nombre y apellido: {{ clientData.name }} {{ clientData.surname }}</p>
+      <p>Fecha de nacimiento: {{ clientData.birthday | date: "dd/MM/yyyy" }}</p>
+      <p>Scoring: {{ clientData.scoring.confidence }}</p>
+      <p>
+        Resultado: {{ clientData.scoring.approved ? "APROBADO" : "DENEGADO" }}
+        <i
+          class="result-mobile"
+          [ngClass]="{
+            'far fa-check-circle color-green': clientData.scoring.approved,
+            'fas fa-times-circle color-red': !clientData.scoring.approved
+          }"
+        ></i>
+      </p>
+    </div>
+    <div class="result">
+      <i
+        [ngClass]="{
+          'far fa-check-circle color-green': clientData.scoring.approved,
+          'fas fa-times-circle color-red': !clientData.scoring.approved
+        }"
+      ></i>
+    </div>
+  </div>
+  <app-spinner *ngIf="searchingClient && !newSearch"></app-spinner>
+  <div
+    *ngIf="
+      clientSearchErrorMessage && !clientData && !searchingClient && !newSearch
+    "
+  >
+    <p class="error-msg">{{ clientSearchErrorMessage }}</p>
+  </div>
+</div>

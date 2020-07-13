@@ -1,0 +1,167 @@
+.container {
+  width: 90vw;
+  padding: 10rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.title h2 {
+  text-align: center;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 200;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2.5rem;
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid white;
+  border-radius: 1.2rem;
+  font-size: 2rem;
+  outline: none;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem 1rem 1.5rem 1.5rem;
+}
+
+.search-input input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  outline: none;
+  border-bottom: 1px solid white;
+  padding: 1rem;
+  letter-spacing: 0.3rem;
+  width: 85%;
+}
+
+.btn {
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  font-size: 2rem;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+
+.btn-hover:hover {
+  color: #c5d32c;
+  border-color: #c5d32c;
+}
+
+.validation {
+  text-align: center;
+}
+
+.data {
+  font-size: 2rem;
+  font-weight: 200;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(241, 241, 241, 0.2);
+  border-radius: 2rem;
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.result {
+  font-size: 10rem;
+  padding: 4rem 0 4rem 2rem;
+}
+
+.error-msg {
+  margin-top: 4rem;
+  font-size: 2rem;
+  font-weight: 200;
+  text-align: center;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}
+
+.result-mobile {
+  display: none;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1250px) {
+  .search-input {
+    width: 80%;
+  }
+  .data {
+    width: 80%;
+  }
+  .result {
+    display: none;
+  }
+  .result-mobile {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  .search-input {
+    width: 90%;
+  }
+  .data {
+    width: 90%;
+  }
+  .result {
+    display: none;
+  }
+  .result-mobile {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .search-input {
+    width: 95%;
+  }
+  .container {
+    width: 100vw;
+  }
+  .data {
+    width: 95%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  .result {
+    display: none;
+  }
+  .result-mobile {
+    display: inline;
+  }
+  .error-msg {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+  }
+}

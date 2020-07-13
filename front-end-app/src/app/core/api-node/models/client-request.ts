@@ -2,5 +2,6 @@
 export interface ClientRequest {
   birthday?: string;
   name?: string;
-  scoring?: {confidence?: number, approved?: boolean};
+  surname?: string;
+  scoring?: { confidence?: number; approved?: boolean };
 }

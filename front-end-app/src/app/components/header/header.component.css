@@ -1,0 +1,51 @@
+header {
+  background-color: #50123d;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 3rem;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+}
+
+.link {
+  height: 80px;
+  width: 80px;
+  background-color: white;
+  padding: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.link a {
+  color: #50123d;
+}
+
+.link a:hover {
+  color: #c5d32c;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+.title {
+  margin-left: 30px;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 575px) {
+}

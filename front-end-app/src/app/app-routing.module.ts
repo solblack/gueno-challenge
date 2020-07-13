@@ -1,11 +1,21 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { ScoreCheckComponent } from "./components/score-check/score-check.component";
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: "",
+    pathMatch: "full",
+    redirectTo: "credit-score",
+  },
+  {
+    path: "credit-score",
+    component: ScoreCheckComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
