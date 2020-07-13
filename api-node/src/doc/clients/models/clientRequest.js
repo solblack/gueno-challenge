@@ -5,7 +5,7 @@ export const ClientRequest = {
 			type: "string",
 			example: "Pedro F.",
 		},
-		name: {
+		surname: {
 			type: "string",
 			example: "Gomez",
 		},

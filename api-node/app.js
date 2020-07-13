@@ -3,6 +3,7 @@ import router from "./src/routes/index";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./src/doc/swagger.js";
 import dotenv from "dotenv";
+import cors from "cors";
 
 // config .env file
 dotenv.config();
@@ -18,6 +19,9 @@ APP.get("/api/swagger.json", function (req, res) {
 	res.setHeader("Content-Type", "application/json");
 	res.send(swaggerDocument);
 });
+
+// CORS setting
+APP.use(cors());
 
 //  Router connection
 router.init(APP);

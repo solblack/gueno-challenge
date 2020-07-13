@@ -11,7 +11,7 @@ const clientController = {
 			const validationErrors = clientController.validateDni(
 				req.params.dni
 			);
-			if (validationErrors) {
+			if (validationErrors.length) {
 				let error = parentController.getValidationError(
 					validationErrors
 				);
